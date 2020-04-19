@@ -4,7 +4,8 @@
     "description": "Code snippets for easy quest development with BetonQuest Spigot Plugin",
     "version": "0.0.1",
     "icon": "assets/icon.png",
-    "publisher": "ungefroren",
+    "author": "Jonas Blocher",
+    "license": "MIT",
     "repository": {
         "url": "https://github.com/joblo2213/betonquest-code-snippets"
     },
