@@ -1,0 +1,28 @@
+{
+    "name": "betonquest-code-snippets",
+    "displayName": "BetonQuest Code Snippets",
+    "description": "Code snippets for easy quest development with BetonQuest Spigot Plugin",
+    "version": "0.0.1",
+    "icon": "assets/icon.png",
+    "publisher": "ungefroren",
+    "repository": {
+        "url": "https://github.com/joblo2213/betonquest-code-snippets"
+    },
+    "bugs": {
+        "url": "https://github.com/joblo2213/betonquest-code-snippets/issues"
+    },
+    "engines": {
+        "vscode": "^1.44.0"
+    },
+    "categories": [
+        "Snippets"
+    ],
+    "contributes": {
+        "snippets": [
+            {
+                "language": "yaml",
+                "path": "./snippets/snippets.json"
+            }
+        ]
+    }
+}
