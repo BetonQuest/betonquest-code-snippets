@@ -1,12 +1,12 @@
 {
   "Achievement Condition": {
     "prefix": "achievement",
-    "description": "\nThis condition checks if the player has specified achievement (default Minecraft achievements). The first argument is name of the [achievement](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Achievement.html).\n",
+    "description": "\nThis condition checks if the player has specified achievement (default Minecraft achievements). The first argument is name of the achievement.\n",
     "body": ["achievement BUILD_FURNACE"]
   },
   "Entities in area Condition": {
     "prefix": "entities",
-    "description": "\n\n**persistent**, **static**\n\nThis condition will return true only if there is a specified amount (or more) of specified entities in the specified area. There are three required arguments - entity type, location and range. Entities are defined as a list separated by commas. Each entity type (taken from [here](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/entity/EntityType.html)) can have additional `:amount` suffix, for example `ZOMBIE:5,SKELETON:2` means 5 or more zombies and 2 or more skeletons. Location is standard. Range is a number representing a radius in which the entities will be looked for. You can also specify additional `name:` argument, with the name of the required entity. Replace all spaces with `_` here. You can use `marked:` argument to check only for monsters marked in `spawn` event.\n",
+    "description": "\n\npersistent, static\n\nThis condition will return true only if there is a specified amount (or more) of specified entities in the specified area. There are three required arguments - entity type, location and range. Entities are defined as a list separated by commas. Each entity type (taken from here) can have additional `:amount` suffix, for example `ZOMBIE:5,SKELETON:2` means 5 or more zombies and 2 or more skeletons. Location is standard. Range is a number representing a radius in which the entities will be looked for. You can also specify additional `name:` argument, with the name of the required entity. Replace all spaces with `_` here. You can use `marked:` argument to check only for monsters marked in `spawn` event.\n",
     "body": ["entities ZOMBIE:2 100;200;300;world 10 name:Deamon"]
   },
   "Sneaking Condition": {
@@ -16,7 +16,7 @@
   },
   "Moon Cycle Condition": {
     "prefix": "mooncycle",
-    "description": "\nThis condition checks the players moon cycle (1 is full moon, 8 is Waxing Gibbous) and returns if the player is under that moon. A list of phases can be found [here](https://minecraft.gamepedia.com/Moon).\n",
+    "description": "\nThis condition checks the players moon cycle (1 is full moon, 8 is Waxing Gibbous) and returns if the player is under that moon. A list of phases can be found here.\n",
     "body": ["mooncycle 1"]
   },
   "Fly Condition": {
@@ -26,7 +26,7 @@
   },
   "Test for block Condition": {
     "prefix": "testforblock",
-    "description": "\n**persistent**, **static**\n\nThis condition is met if the block at specified location matches the given material. First argument is a location, and the second one is a `block selector`. The older `data:value` parameter is still supported but now deprecated.\n",
+    "description": "\npersistent, static\n\nThis condition is met if the block at specified location matches the given material. First argument is a location, and the second one is a `block selector`. The older `data:value` parameter is still supported but now deprecated.\n",
     "body": ["testforblock 100;200;300;world STONE:1"]
   },
   "Item in Hand Condition": {
@@ -36,7 +36,7 @@
   },
   "Variable Condition": {
     "prefix": "variable",
-    "description": "\nThis condition checks if a variable value matches given [pattern](https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html). The first argument is a variable (with `%` characters). Second one is the pattern (for example, if you want to check if it's \"word\", the patter would simply be `word`, but if you want to check if it's a number (positive or negative) you would use `-?\\d+` pattern - `-?` means a dash or no dash, `\\d` means any digit and `+` allows that digit to be repeated one or more times).\n",
+    "description": "\nThis condition checks if a variable value matches given pattern. The first argument is a variable (with `%` characters). Second one is the pattern (for example, if you want to check if it's \"word\", the patter would simply be `word`, but if you want to check if it's a number (positive or negative) you would use `-?\\d+` pattern - `-?` means a dash or no dash, `\\d` means any digit and `+` allows that digit to be repeated one or more times).\n",
     "body": ["variable %objective.var.price% -?\\d+"]
   },
   "Tag Condition": {
@@ -46,7 +46,7 @@
   },
   "Global tag Condition": {
     "prefix": "globaltag",
-    "description": "\n**persistent**, **static**\n\nThis requires a specific global tag to be set and works the same as normal tag condition.\n",
+    "description": "\npersistent, static\n\nThis requires a specific global tag to be set and works the same as normal tag condition.\n",
     "body": ["globaltag global_areNPCsAgressive"]
   },
   "Health Condition": {
@@ -66,7 +66,7 @@
   },
   "Armor Condition": {
     "prefix": "armor",
-    "description": "\nThe armor condition requires the player to wear specified armor, as an item defined in _items.yml_ file.\n",
+    "description": "\nThe armor condition requires the player to wear specified armor, as an item defined in items.yml file.\n",
     "body": ["armor helmet_of_concrete"]
   },
   " Looking at a block Condition": {
@@ -86,12 +86,12 @@
   },
   "Global point Condition": {
     "prefix": "globalpoint",
-    "description": "\n\n**persistent**, **static**\n\nThe same as point condition but it checks the amount for a global point category which has the same value for all players.\n",
+    "description": "\n\npersistent, static\n\nThe same as point condition but it checks the amount for a global point category which has the same value for all players.\n",
     "body": ["globalpoint global_knownusers 100"]
   },
   "Biome Condition": {
     "prefix": "biome",
-    "description": "\nThis condition will check if the player is in specified biome. The only argument is the [biome type](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/block/Biome.html).\n",
+    "description": "\nThis condition will check if the player is in specified biome. The only argument is the biome type.\n",
     "body": ["biome savanna_rock"]
   },
   "Conjunction Condition": {
@@ -141,7 +141,7 @@
   },
   "Journal entry Condition": {
     "prefix": "journal",
-    "description": "\nThis condition will return true if the player has specified entry in his journal (internal name of the entry, like in _journal.yml_). The only argument is name of the entry.\n",
+    "description": "\nThis condition will return true if the player has specified entry in his journal (internal name of the entry, like in journal.yml). The only argument is name of the entry.\n",
     "body": ["journal wood_started"]
   },
   "Game mode Condition": {
@@ -166,22 +166,22 @@
   },
   "Party Condition": {
     "prefix": "party",
-    "description": "\nTo see details about parties read \"Party\" chapter in **Reference** section. This condition takes three optional arguments: `every:`, `any:` and `count:`. \"Every\" is a list of conditions that must be met by every player in the party. Any is a list of conditions that must be met by at least one player in a party (it doesn't have to be the same player, one can meet first condition, another one can meet the rest and it will work). Count is just a number, minimal amount of players in the party. You don't have to specify all those arguments, you can use only one if you want.\n",
+    "description": "\nTo see details about parties read \"Party\" chapter in Reference section. This condition takes three optional arguments: `every:`, `any:` and `count:`. \"Every\" is a list of conditions that must be met by every player in the party. Any is a list of conditions that must be met by at least one player in a party (it doesn't have to be the same player, one can meet first condition, another one can meet the rest and it will work). Count is just a number, minimal amount of players in the party. You don't have to specify all those arguments, you can use only one if you want.\n",
     "body": ["party 10 has_tag1,!has_tag2 every:some_item any:some_location,some_other_item count:5"]
   },
   "Random Condition": {
     "prefix": "random",
-    "description": "\n**persistent**, **static**\n\nThis condition is met randomly. There is one argument: two positive numbers like `5-12`. They mean something like that: \"It will be true 5 times out of 12\".\n",
+    "description": "\npersistent, static\n\nThis condition is met randomly. There is one argument: two positive numbers like `5-12`. They mean something like that: \"It will be true 5 times out of 12\".\n",
     "body": ["random 12-100"]
   },
   "Potion Effect Condition": {
     "prefix": "effect",
-    "description": "\nTo meet this condition the player must have an active potion effect. There is only one argument and it takes values from this page: [potion types](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/potion/PotionEffectType.html).\n",
+    "description": "\nTo meet this condition the player must have an active potion effect. There is only one argument and it takes values from this page: potion types.\n",
     "body": ["effect SPEED"]
   },
   "Objective Condition": {
     "prefix": "objective",
-    "description": "\nThis conditions is very simple: it's true only when the player has an active objective. The only argument is the name of the objective, as defined in _objectives.yml_.\n",
+    "description": "\nThis conditions is very simple: it's true only when the player has an active objective. The only argument is the name of the objective, as defined in objectives.yml.\n",
     "body": ["objective wood"]
   },
   "Check conditions Condition": {
@@ -196,12 +196,12 @@
   },
   "Chest Item Condition": {
     "prefix": "chestitem",
-    "description": "\n\n**persistent**, **static**\n\nThis condition works in the same way as `item` condition, but it checks the specified chest instead of a player. The first argument is a location of the chest and the second one is the list of items defined in the same way as in `item` condition. If there is no chest at specified location the condition won't be met.\n",
+    "description": "\n\npersistent, static\n\nThis condition works in the same way as `item` condition, but it checks the specified chest instead of a player. The first argument is a location of the chest and the second one is the list of items defined in the same way as in `item` condition. If there is no chest at specified location the condition won't be met.\n",
     "body": ["chestitem 100;200;300;world emerald:5,sword"]
   },
   "Height Condition": {
     "prefix": "height",
-    "description": "\nThis condition requires the player to be _below_ specific Y height. The required argument is a number or a location (for example 100;200;300;world). In case of location it will take the height from it and use it as regular height.\n",
+    "description": "\nThis condition requires the player to be below specific Y height. The required argument is a number or a location (for example 100;200;300;world). In case of location it will take the height from it and use it as regular height.\n",
     "body": ["height 16"]
   },
   "Day of week Condition": {
