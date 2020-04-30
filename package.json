@@ -22,7 +22,15 @@
         "snippets": [
             {
                 "language": "yaml",
-                "path": "./snippets/snippets.json"
+                "path": "./snippets/conditions.json"
+            },
+            {
+                "language": "yaml",
+                "path": "./snippets/events.json"
+            },
+            {
+                "language": "yaml",
+                "path": "./snippets/objectives.json"
             }
         ]
     }
