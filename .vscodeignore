@@ -1,4 +1,5 @@
 generator/**
-assets/**
 .vscode/**
 .vscode-test/**
+.gitignore
+.gitmodules
