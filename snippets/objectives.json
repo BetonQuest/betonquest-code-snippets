@@ -2,7 +2,7 @@
   "Death Objective": {
     "prefix": "die",
     "description": "\nDeath objective completes when the player dies meeting all conditions. You can optionally cancel death with `cancel` argument. It will heal player and optionally teleport him to respawn location. There can be two arguments: `cancel`, which is optional, and `respawn:`, which is also optional and only used if there is the `cancel` argument set. You can add them right after type of objective.\n",
-    "body": ["die ${1| ,cancel|} ${2| ,respawn:|} events:$3 ${4| ,conditions:}$0"]
+    "body": ["die ${1| ,cancel|} ${2| ,respawn:|} events:$3 ${4| ,conditions:|}$0"]
   },
   "Smelting Objective": {
     "prefix": "smelt",
