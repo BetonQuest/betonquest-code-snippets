@@ -4,9 +4,14 @@
     "description": "Code snippets for easy quest development with BetonQuest Spigot Plugin",
     "version": "0.0.1",
     "icon": "assets/icon.png",
+    "galleryBanner": {
+        "color": "#3F51B5",
+        "theme": "dark"
+    },
     "author": "Jonas Blocher",
-    "license": "MIT",
+    "license": "GPLv3",
     "repository": {
+        "type": "git",
         "url": "https://github.com/BetonQuest/betonquest-code-snippets/"
     },
     "bugs": {

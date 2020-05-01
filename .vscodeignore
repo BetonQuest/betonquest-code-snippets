@@ -1,1 +1,4 @@
-/generator/
+/generator/**
+/assets/**
+.vscode/**
+.vscode-test/**

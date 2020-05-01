@@ -1,65 +1,36 @@
-# betonquest-code-snippets README
+# BetonQuest Code Snippets
+<p align="center">
+    <a href="https://github.com/BetonQuest/BetonQuest">
+        <!-- TODO Update version for major releases -->
+        <img src="https://img.shields.io/badge/BetonQuest-v1.11-brightgreen">
+    </a>
+    <a href="https://github.com/Co0sh/BetonQuest/blob/master/LICENSE">
+        <img src="https://img.shields.io/badge/license-GPLv3-blue" alt="License" />
+      </a>
+    <a href="https://discord.gg/MvmkHEu" target="_blank">
+        <img src="https://img.shields.io/badge/discord-join-7289DA.svg?logo=discord&longCache=true&style=flat" />
+    </a>
+</p>
 
-This is the README for your extension "betonquest-code-snippets". After writing up a brief description, we recommend including the following sections.
+**Code snippets version `1.0.0` for BetonQuest version [`1.11`](https://github.com/BetonQuest/BetonQuest/releases/tag/v1.11)**
+
+[BetonQuest](https://github.com/BetonQuest/BetonQuest) is a plugin that allows you to create complex rpg styled quests on your spigot minecraft server.  
+
+This extension simplifies the process of creating quests by providing code snippets for all events, conditions and objectives.  
+It is a powerful tool for beginners to avoid unnecessary errors and for experienced users to speed up their questing.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
-
-For example if there is an image subfolder under your extension project workspace:
-
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
-
-## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
-
-## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
+<!-- TODO Document Features -->
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+Report new Issues [here](https://github.com/joblo2213/betonquest-code-snippets/issues)
 
 ## Release Notes
-
-Users appreciate release notes as you update your extension.
+<!-- TODO Add release notes -->
 
 ### 1.0.0
 
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+A first release that includes a bundle of snippets for all events, conditions and events that are natively supported by BetonQuest.  
+Features that need an additional Plugin (documented under [Compatibility](https://betonquest.github.io/BetonQuest/en/latest/)) are not yet supported and will come in a future release.  
