@@ -1,5 +1,8 @@
 # BetonQuest Code Snippets
 <p align="center">
+    <a href="https://marketplace.visualstudio.com/items?itemName=BetonQuest.betonquest-code-snippets">
+        <img src="https://img.shields.io/visual-studio-marketplace/v/BetonQuest.betonquest-code-snippets?color=brightgreen&label=VS%20Marketplace&logo=visual-studio-code&style=flat-square">
+    </a>
     <a href="https://github.com/BetonQuest/BetonQuest">
         <!-- TODO Update version for major releases -->
         <img src="https://img.shields.io/badge/BetonQuest-v1.11-brightgreen">
@@ -21,7 +24,11 @@ It is a powerful tool for beginners to avoid unnecessary errors and for experien
 
 ## Features
 
-<!-- TODO Document Features -->
+* **Tab competition for all events, conditions and objectives**
+* **Suggests optional attributes**
+* **Preview with short description from BetonQuest wiki**
+
+![](assets/demo.gif)
 
 ## Known Issues
 
