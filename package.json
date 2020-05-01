@@ -7,10 +7,10 @@
     "author": "Jonas Blocher",
     "license": "MIT",
     "repository": {
-        "url": "https://github.com/joblo2213/betonquest-code-snippets"
+        "url": "https://github.com/BetonQuest/betonquest-code-snippets/"
     },
     "bugs": {
-        "url": "https://github.com/joblo2213/betonquest-code-snippets/issues"
+        "url": "https://github.com/BetonQuest/betonquest-code-snippets/issues"
     },
     "engines": {
         "vscode": "^1.44.0"
