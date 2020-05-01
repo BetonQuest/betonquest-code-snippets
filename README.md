@@ -5,13 +5,13 @@
     </a>
     <a href="https://github.com/BetonQuest/BetonQuest">
         <!-- TODO Update version for major releases -->
-        <img src="https://img.shields.io/badge/BetonQuest-v1.11-brightgreen">
+        <img src="https://img.shields.io/badge/BetonQuest-v1.11-brightgreen?style=flat-square">
     </a>
     <a href="https://github.com/Co0sh/BetonQuest/blob/master/LICENSE">
-        <img src="https://img.shields.io/badge/license-GPLv3-blue" alt="License" />
+        <img src="https://img.shields.io/badge/license-GPLv3-blue?style=flat-square" alt="License" />
       </a>
     <a href="https://discord.gg/MvmkHEu" target="_blank">
-        <img src="https://img.shields.io/badge/discord-join-7289DA.svg?logo=discord&longCache=true&style=flat" />
+        <img src="https://img.shields.io/badge/discord-join-7289DA.svg?logo=discord&longCache=true&style=flat-square" />
     </a>
 </p>
 
