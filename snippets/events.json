@@ -37,7 +37,7 @@
   "Folder Event": {
     "prefix": "folder",
     "description": "\npersistent, static\n\nIt's something like a container for multiple events. You can use it to clarify your code. It also features optional delay measured in seconds (you can use ticks or minutes if you add `ticks` or `minutes` argument). It is persistent for events marked as persistent, which means that the events will be fired even after the player logs out. Beware though, all conditions are false then the player is offline (even inverted ones), so those events should not be blocked by any conditions! The only required argument is a list of events separated by commas. There are also two optional arguments: `delay:` and `random:`. Delay is a number of seconds and it's optional (leaving it blank is the same as `delay:0`. Random is the amount of events, that will be randomly chosen to fire. If set to 0 or omited, it does nothing (all events will fire).\n",
-    "body": ["folder ${1:eventID},${2:eventID}$3 ${4| ,delay:} ${5| ,ticks,minutes} ${6| ,random:|}$0"]
+    "body": ["folder ${1:eventID},${2:eventID}$3 ${4| ,delay:|} ${5| ,ticks,minutes|} ${6| ,random:|}$0"]
   },
   "Explosion Event": {
     "prefix": "explosion",
