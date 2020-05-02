@@ -9,6 +9,14 @@ This project loosely follows [Semantic Versioning](https://semver.org/spec/v2.0.
 
 <!-- TODO Update change log -->
 
+## [1.0.1] - 2020-05-02
+
+### Release Notes:
+Some updates to the README file and fixed an error in the Folder Event Snippets
+
+### Updated Snippets:
+  * Folder Event
+
 ## [1.0.0] - 2020-05-01
 
 **Build for BetonQuest version [`1.11`](https://github.com/BetonQuest/BetonQuest/releases/tag/v1.11)**

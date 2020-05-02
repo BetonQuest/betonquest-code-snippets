@@ -37,6 +37,10 @@ Report new Issues [here](https://github.com/joblo2213/betonquest-code-snippets/i
 ## Release Notes
 <!-- TODO Add release notes -->
 
+### 1.0.1
+
+Some updates to the README file and fixed an error in the Folder Event Snippets.
+
 ### 1.0.0
 
 A first release that includes a bundle of snippets for all events, conditions and events that are natively supported by BetonQuest.  
