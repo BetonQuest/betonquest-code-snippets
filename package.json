@@ -2,7 +2,7 @@
     "name": "betonquest-code-snippets",
     "displayName": "BetonQuest Code Snippets",
     "description": "Code snippets for easy quest development with BetonQuest Spigot Plugin",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "icon": "assets/icon.png",
     "galleryBanner": {
         "color": "#3F51B5",
