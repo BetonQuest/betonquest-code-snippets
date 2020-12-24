@@ -7,7 +7,13 @@ This project loosely follows [Semantic Versioning](https://semver.org/spec/v2.0.
  3. **PATCH** version will be incremented if only some snippets descriptions changed (as a result to updates to the BetonQuest wiki)
 
 
-<!-- TODO Update change log -->
+<!--TODO Update change log -->
+
+## [2.0.0] - 2020-12-24
+
+### Release Notes:
+All snippets have been overhauled to work with BetonQuest 1.12. They also now feature proper completion
+options. Additionally, conversation snippets have been added.
 
 ## [1.0.1] - 2020-05-02
 

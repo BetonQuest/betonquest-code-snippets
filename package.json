@@ -49,12 +49,12 @@
         ],
         "keybindings": [
             {
-                "key": "ctrl+c+1",
+                "key": "shift+space",
                 "command": "editor.action.insertSnippet",
                 "when": "editorTextFocus",
                 "args": {
                     "langId": "yaml",
-                    "name": "block Objective"
+                    "name": "conversationOption"
                 }
             }
         ]

@@ -37,6 +37,11 @@ Report new Issues [here](https://github.com/joblo2213/betonquest-code-snippets/i
 ## Release Notes
 <!-- TODO Add release notes -->
 
+### 2.0.0
+
+All snippets have been overhauled to work with BetonQuest 1.12. They also now feature proper completion
+options. Additionally, conversation snippets have been added.
+
 ### 1.0.1
 
 Some updates to the README file and fixed an error in the Folder Event Snippets.

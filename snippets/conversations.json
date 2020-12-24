@@ -23,7 +23,7 @@
             "    text: \"Leave me alone...\""
         ]
     }, 
-    "ConversationOption": {
+    "conversationOption": {
         "prefix": "conversationOption",
         "description": "A conversation option that can be used in both NPC_options and player_options.",
         "body": [
