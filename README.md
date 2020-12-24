@@ -5,9 +5,9 @@
     </a>
     <a href="https://github.com/BetonQuest/BetonQuest">
         <!-- TODO Update version for major releases -->
-        <img src="https://img.shields.io/badge/BetonQuest-v1.11-brightgreen?style=flat-square">
+        <img src="https://img.shields.io/badge/BetonQuest-v1.12-brightgreen?style=flat-square">
     </a>
-    <a href="https://github.com/Co0sh/BetonQuest/blob/master/LICENSE">
+    <a href="https://github.com/BetonQuest/BetonQuest/blob/master/LICENSE">
         <img src="https://img.shields.io/badge/license-GPLv3-blue?style=flat-square" alt="License" />
       </a>
     <a href="https://discord.gg/MvmkHEu" target="_blank">
@@ -15,9 +15,10 @@
     </a>
 </p>
 
-**Code snippets version `1.0.0` for BetonQuest version [`1.11`](https://github.com/BetonQuest/BetonQuest/releases/tag/v1.11)**
 
-[BetonQuest](https://github.com/BetonQuest/BetonQuest) is a plugin that allows you to create complex rpg styled quests on your spigot minecraft server.  
+**Code snippets version `2.0.0` for BetonQuest version [`1.12`](https://github.com/BetonQuest/BetonQuest/releases/tag/v1.11)**
+
+[BetonQuest](https://github.com/BetonQuest/BetonQuest) is a plugin that allows you to create complex rpg styled quests on your Spigot Minecraft server.  
 
 This extension simplifies the process of creating quests by providing code snippets for all events, conditions and objectives.  
 It is a powerful tool for beginners to avoid unnecessary errors and for experienced users to speed up their questing.
