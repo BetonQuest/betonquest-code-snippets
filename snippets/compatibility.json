@@ -1,0 +1,242 @@
+{
+  "Quest Compatibility": {
+    "prefix": "quest",
+    "description": "This event will start the quest for the player. The first argument must be the name of the quest, as defined in `name` option in the quest. If the name contains any spaces replace them with `_`. You can optionally add `check-requirements` argument if you want the event to respect this quest's requirements (otherwise the quest will be forced to be started).",
+    "body": ["\"quest ${1:questName} ${2|check-requirements, |} ${3|conditions:, |}\"\n$0"]
+  },
+  "Move NPC Compatibility": {
+    "prefix": "movenpc",
+    "description": "This event will make the NPC move to a specified location. It will not return on its own,\nso you have to set a single path point with /npc path command - it will then return to that point every time.\nIf you make it move too far away, it will teleport or break, so beware. You can change maximum pathfinding range in Citizens\nconfiguration files. The first argument in this event is ID of the NPC to move. Second one is a location in a standard format (like in `teleport` event).\nYou can also specify multiple locations separated by colons to let the npc follow a path of locations.\nYou can also specify additional arguments: `block` will block the NPC so you won't be able to start a conversation with him while he is moving,\n`wait:` is a number of tick the NPC will wait at its destination before firing events,\n`done:` is a list of events fired after reaching the destination, `fail:` is a list of events fired if this event fails.\nMove event can fail if the NPC is already moving for another player.",
+    "body": ["\"movenpc ${1:npcID} ${2:x};${3:y};${4:z};${5:worldName}${6|\\,anotherLocation, |} ${7|block, |} ${8| ,wait:ticks|} ${9| ,done:|} ${10| ,fail:|} ${11|conditions:, |}\"\n$0"]
+  },
+  "Add MCMMO Experience Compatibility": {
+    "prefix": "mcmmoexp",
+    "description": "This event adds experience points in a specified skill. The first argument is the name of the skill, second one is the amount of experience to add.",
+    "body": ["\"mcmmoexp ${1:skillName} ${2:expAmount} ${3|conditions:, |}\"\n$0"]
+  },
+  "Skill Compatibility": {
+    "prefix": "heroesskill",
+    "description": "This condition checks if the player can use specified skill. The first argument is the name of the skill.",
+    "body": ["\"heroesskill ${1:skillName}`\"\n$0"]
+  },
+  "Job Full Compatibility": {
+    "prefix": "nujobs_jobfull {jobname}",
+    "description": "Returns true if the job is at the maximum slots\n",
+    "body": ["\"nujobs_joblevel ${1:jobName}\"\n$0"]
+  },
+  "Vault Money Condition Compatibility": {
+    "prefix": "money",
+    "description": "Checks if the player has specified amount of money. You can specify only one argument, amount integer. It cannot be negative!",
+    "body": ["\"money ${1:amount}\"\n$0"]
+  },
+  "NPC Range Compatibility": {
+    "prefix": "npcrange",
+    "description": "The player has to enter/leave a circle with the given radius around the NPC to complete this objective.\nIt is also possible to define multiple NPCs separated with `,`. The objective will be completed as soon as you meet the requirement of just one npc.\nFirst argument is the ID of the NPC, second one is the type: Either `enter`, `leave`, `inside` or `outside` and the third one is the range.\nThe types `enter`, `leave` force the player to actually enter the radius after you were outside of it and vice versa.\nThis means that `enter` is not completed when the player gets the objective and is already in the range, while `inside` is instantly completed.",
+    "body": ["\"npcrange ${1:npcID}${2| ,\\,nextID|} ${3|enter,leave,inside,outside|} ${4:range} events:$5 ${6|conditions:, |} ${7|global, |} ${8|persistent, |}\"\n$0"]
+  },
+  "Set Jobs Level Compatibility": {
+    "prefix": "nujobs_setlevel {jobname} {level}",
+    "description": "Set the player to level.\n",
+    "body": ["\"nujobs_setlevel ${1:jobname} ${2:level} ${3|conditions:, |}\"\n$0"]
+  },
+  "Leave Jobs Job Event Compatibility": {
+    "prefix": "nujobs_leavejob {jobname}",
+    "description": "Removes the player from job.\n",
+    "body": ["\"nujobs_leavejob ${1:jobname} ${2|conditions:, |}\"\n$0"]
+  },
+  "McMMO Level Compatibility": {
+    "prefix": "mcmmolevel",
+    "description": "This conditions checks if the player has high enough level in the specified skill. The first argument is the name of the skill, second one is the minimum level the player needs to have to pass this condition.",
+    "body": ["\"mcmmolevel ${1:skillName} ${2:minLevel}\"\n$0"]
+  },
+  "MMOCore class Compatibility": {
+    "prefix": "mmoclass",
+    "description": "Checks if a player has the given MMOCore class. If a level has been specified the player needs to be on that level or higher to meet the condition.\nYou can disable this behaviour by adding the `equal` argument. \n```YAML linenums=\"1\"\nmmoclass WARRIOR\nmmoclass MAGE 5\nmmoclass MAGE 5 equal\n```\n",
+    "body": ["\"mmoclass ${1:className} ${2| ,minlevel| ${3| ,equal|}}\"\n$0"]
+  },
+  "Teleport NPC Compatibility": {
+    "prefix": "teleportnpc",
+    "description": "This event will teleport the NPC with the given ID to the given location.",
+    "body": ["\"teleportnpc ${1:npcID} ${2:x};${3:y};${4:z};${5:worldName} ${6|conditions:, |}\"\n$0"]
+  },
+  "Enter Region Compatibility": {
+    "prefix": "region",
+    "description": "To complete this objective you need to enter WorldGuard region with specified name. A required argument is the name of the region and you may also pass an optional `entry` and/or `exit` to only trigger when entering or exiting a region instead of anytime inside a region.",
+    "body": ["\"region ${1:regionName} ${2| ,entry,exit|} events:$3 ${4|conditions:, |} ${7|global, |} ${8|persistent, |}\"\n$0"]
+  },
+  "MythicMob distance Compatibility": {
+    "prefix": "mythicmobdistance",
+    "description": "Check whether the player is near a specific MythicMobs entity. The first argument is the internal name of the mob (the one defined in MythicMobs' configuration). The second argument is the distance to check, measured in block lengths in a circular radius.",
+    "body": ["\"mythicmobdistance ${1:mobID} ${2:range}\"\n$0"]
+  },
+  "NPC region Compatibility": {
+    "prefix": "npcregion",
+    "description": "persistent, static\n\n!!! notice\n    This condition also requires WorldGuard to work.\n\nThis condition will return true if a npc is inside a region. First argument is the id of the npc second is the name of the region.",
+    "body": ["\"npcregion ${1:npcID} ${2:regionName}`\"\n$0"]
+  },
+  "Jobs Job Levelup Compatibility": {
+    "prefix": "nujobs_levelup {jobname}",
+    "description": "Triggers when player levels up.\n",
+    "body": ["\"nujobs_levelup ${1:jobName} events:$2 ${3|conditions:, |} ${4|global, |} ${5|persistent, |}\"\n$0"]
+  },
+  "NPC distance Compatibility": {
+    "prefix": "npcdistance",
+    "description": "This condition will return true if the player is closer to the NPC with the given ID than the given distance.\n The NPCs ID is the first argument, the distance is the second. If the npc is despawned the condition will return false.",
+    "body": ["\"npcdistance ${1:npcID} ${2:range}\"\n$0"]
+  },
+  "Permission Compatibility": {
+    "prefix": "permission",
+    "description": "Adds or removes a permission or a group. First argument is `add` or `remove`. It's self-explanatory. Second is `perm` or `group`. It also shouldn't be hard to figure out. Next thing is actual string you want to add/remove. At the end you can also specify world in which you want these permissions. If the world name is ommited then permission/group will be global.",
+    "body": ["\"permission ${1|add,remove|} ${2|perm,group|} ${3:permissionName} ${4| ,world|} ${5|conditions:, |}\"\n$0"]
+  },
+  "Particle Compatibility": {
+    "prefix": "particle",
+    "description": "This event will load an effect defined in `effects` section in\ncustom.yml file and display it on player's location. The only argument\nis the name of the effect. You can optionally add `loc:` argument\nfollowed by a location written like `100;200;300;world;180;-90` to put\nit on that location. If you add `private` argument the effect will only\nbe displayed to the player for which you ran the event.\n\n!!! example\n    In custom.yml\n    ```YAML\n    effects:\n      beton:\n        class: HelixEffect\n        iterations: 100\n        particle: smoke\n        helixes: 5\n        circles: 20\n        grow: 3\n        radius: 30\n    ```\n    \n    In events.yml\n    ```YAML\n    particle beton loc:100;200;300;world;180;-90 private`\n    ```\n",
+    "body": ["\"particle ${1:particleName} ${2| ,loc:location|} ${3| ,private|} ${4|conditions:, |}\"\n$0"]
+  },
+  "SkillAPI Class Compatibility": {
+    "prefix": "skillapiclass",
+    "description": "This condition checks if the player has specified class or a child class of the specified one. The first argument is simply the name of a class. You can add `exact` argument if you want to check for that exact class, without checking child classes.",
+    "body": ["\"skillapiclass ${1:className} ${2| ,exact|}\"\n$0"]
+  },
+  "Quest condition Compatibility": {
+    "prefix": "quest",
+    "description": "This condition is met when the player has completed the specified quest. The first and only argument is the name of the quest. It it contains any spaces replace them with `_`.",
+    "body": ["\"quest ${1:questName}\"\n$0"]
+  },
+  "SkillAPI Level Compatibility": {
+    "prefix": "skillapilevel",
+    "description": "This condition checks if the player has specified or greater level is the specified class. The first argument is class name, the second one is the required level.",
+    "body": ["\"skillapilevel ${1:className} ${2:minLevel}\"\n$0"]
+  },
+  "Job Level Compatibility": {
+    "prefix": "nujobs_joblevel {jobname} {min} {max}",
+    "description": "Returns true if the player has this job, and at a level equal to or between the min/max",
+    "body": ["\"nujobs_joblevel ${1:jobname} ${2:minLevel} ${3:maxLevel}\"\n$0"]
+  },
+  "MobKill Compatibility": {
+    "prefix": "mmobkill",
+    "description": "You need to kill the specified amount of MythicMobs to complete this objective. The first argument must be\nthe mob's internal name (the one defined in your MythicMobs configuration). You can optionally add the `amount:`\nargument to specify how many of these mobs need to be killed. It's also possible to add the optional arguments\n`minLevel` and `maxLevel` to further customize what mobs need to be killed.\nYou can also add an optional `neutralDeathRadiusAllPlayers` argument to complete the objective for each nearby player within the defined radius when the mob is killed by any source.\nYou can add a \"notify\" keyword if you want to send a notification to players whenever the objective\nprogresses.",
+    "body": ["\"mmobkill ${1:mobID} ${2| ,amount:2|} ${3| ,minLevel:1|} ${4| ,maxlevel:5|} ${5| ,neutralDeathRadiusAllPlayers|} events:$6 ${7|conditions:, |} ${8:notify:${9:interval}} ${10|global, |} ${11|persistent, |}\"\n$0"]
+  },
+  "Open shop window Compatibility": {
+    "prefix": "shopkeeper",
+    "description": "This event opens a trading window of a Villager. The only argument is the uniqueID of the shop. You can find it in Shopkeepers/saves.yml file, under `uniqueID` option.",
+    "body": ["\"shopkeeper {1:uniqueShopID} ${2|conditions:, |}\"\n$0"]
+  },
+  "Heroes Class Compatibility": {
+    "prefix": "heroesclass",
+    "description": "This condition checks the classes of the player. The first argument must be `primary`, `secondary` or `mastered`. Second is the name of a class or `any`. You can optionally specify `level:` argument followed by the required level of the player.",
+    "body": ["\"heroesclass ${1|primary,secondary,mastered|} ${2|className, any|} ${3| ,level:10|}\"\n$0"]
+  },
+  "SpawnMob Compatibility": {
+    "prefix": "mspawnmob",
+    "description": "Spawn specified amount of MythicMobs at given location. The first argument is a location defined like `100;200;300;world`. Second is MythicMobs internal name (the one defined in MythicMobs' configuration) followed by a colon and a level. Third one is amount and it's required!",
+    "body": ["\"mspawnmob ${1:x};${2:y};${3:z};${4:worldName} ${5:mobID}:${6:mobLevel} ${7:mobAmount} ${8|conditions:, |}\"\n$0"]
+  },
+  "NPC location Compatibility": {
+    "prefix": "npclocation",
+    "description": "persistent, static\n\nThis condition will return true if a npc is close to a location. First argument is the id of the NPC, second the location and third the maximum distance to the location that the npc is allowed to have.",
+    "body": ["\"npclocation ${1:npcID} ${2:x};${3:y};${4:z};${5:worldName} ${6:maxDistance}\"\n$0"]
+  },
+  "Join Jobs Job Objective Compatibility": {
+    "prefix": "nujobs_joinjob {jobname}",
+    "description": "Triggers when player joins job.\n",
+    "body": ["\"nujobs_joinjob ${1:jobname} events:$2 ${3|conditions:, |} ${4|global, |} ${5|persistent, |}\"\n$0"]
+  },
+  "NPC Interact Compatibility": {
+    "prefix": "npcinteract",
+    "description": "The player has to right-click on the NPC with specified ID. It can also optionally cancel the action, so the conversation won't start.\nThe first argument is number (ID of the NPC), and the second is optional `cancel`.",
+    "body": ["\"npcinteract ${1:npcID} ${2|cancel, |} events:$3 ${4|conditions:, |} ${5|global, |} ${6|persistent, |}\"\n$0"]
+  },
+  "Wand Compatibility": {
+    "prefix": "wand",
+    "description": "This condition can check wands. The first argument is either `hand`, `inventory` or `lost`. If you choose `lost`, the condition will check if the player has lost a wand. If you choose `hand`, the condition will check if you're holding a wand in your hand. `inventory` will check your whole inventory instead of just the hand. In case of `hand` and `inventory` arguments you can also add optional `name:` argument followed by the name of the wand (as defined in wands.yml in Magic plugin) to check if it's the specific type of the wand. In the case of `inventory` you can specify an amount with `amount` and this will only return true if a player has that amount. You can also use optional `spells:` argument, followed by a list of spells separated with a comma. Each spell in this list can have defined minimal level required, after a colon.",
+    "body": ["\"wand ${1|hand,inventory,lost|} ${2|name:wandName, |} ${3|amount:, |} ${4|spells:spellName:minLevel, |}\"\n$0"]
+  },
+  "Vault Money Event Compatibility": {
+    "prefix": "money",
+    "description": "Deposits, withdraws or multiplies money on player's account. There is only one argument, amount of money to modify. It can be positive, negative or start with an asterisk for multiplication.",
+    "body": ["\"money ${1|+110,-120,*2|}\"\n$0"]
+  },
+  "Jobs Job Payment Compatibility": {
+    "prefix": "nujobs_payment {amount}",
+    "description": "Triggers when player makes {amount} of money from jobs.\n\n",
+    "body": ["\"nujobs_payment ${1:moneyAmount} events:$2 ${3|conditions:, |} ${4|global, |} ${5|persistent, |}\"\n$0"]
+  },
+  "Stop moving NPC Compatibility": {
+    "prefix": "stopnpc",
+    "description": "This will stop all current move tasks for the npc with the given ID.",
+    "body": ["\"stopnpc ${1:npcID} ${2|conditions:, |}\"\n$0"]
+  },
+  "NPC Kill Compatibility": {
+    "prefix": "npckill",
+    "description": "NPC Kill objective requires the player to kill an NPC with the given ID. You can also define how many times an NPC has to be killed. Right after objective's name there must be na ID of the NPC. You can also add an amount by `amount:`.",
+    "body": ["\"npckill ${1:npcID} ${2|amount:, |} events:$3 ${4|conditions:, |} ${5|global, |} ${6|persistent, |}`\"\n$0"]
+  },
+  "Add Jobs Experience Compatibility": {
+    "prefix": "nujobs_addexp {jobname} {exp}",
+    "description": "Gives the player experience\n",
+    "body": ["\"nujobs_addexp ${1:jobname} ${2:exp} ${3|conditions:, |}\"\n$0"]
+  },
+  "Join Jobs Job Event Compatibility": {
+    "prefix": "nujobs_joinjob {jobname}",
+    "description": "Joins the player to job.\n",
+    "body": ["\"nujobs_joinjob ${1:jobname} ${2|conditions:, |}\"\n$0"]
+  },
+  "Vault Money Variable Compatibility": {
+    "prefix": "money",
+    "description": "There is only one argument in this variable, `amount` for showing money amount or `left:` followed by a number for showing the difference between it and amount of money.",
+    "body": ["%money.${1|amount,left:500|}%"]
+  },
+  "Can Level up Compatibility": {
+    "prefix": "nujobs_canlevel {jobname}",
+    "description": "Returns true if the player can level up\n",
+    "body": ["\"nujobs_canlevel ${1:jobname}\"\n$0"]
+  },
+  "Increase Jobs Level Compatibility": {
+    "prefix": "nujobs_addlevel {jobname} {amount}",
+    "description": "Increases the player level by amount.\n",
+    "body": ["\"nujobs_addlevel ${1:jobname} ${2:amount} ${3|conditions:, |}\"\n$0"]
+  },
+  "Heroes experience Compatibility": {
+    "prefix": "heroesexp",
+    "description": "This event simply gives the player specified amount of Heroes experience. The first argument is either `primary` or `secondary` and it means player's class. Second one is the amount of experience to add.",
+    "body": ["\"heroesexp ${1|primary,secondary|} ${2:expAmount} ${3|conditions:, |}\"\n$0"]
+  },
+  "Script Compatibility": {
+    "prefix": "script",
+    "description": "With this event you can fire Denizen task scripts. Don't confuse it with `skript` event, these are different. The first and only argument is the name of the script.",
+    "body": ["\"script ${1:denizenScriptName} ${2|conditions:, |}\"\n$0"]
+  },
+  "Inside Region Compatibility": {
+    "prefix": "region",
+    "description": "This condition is met when the player is inside the specified region. The only argument is the name of the region.",
+    "body": ["\"region ${1:regionName}\"\n$0"]
+  },
+  "Decrease Jobs Level Compatibility": {
+    "prefix": "nujobs_dellevel {jobname} {amount}",
+    "description": "Decreases the players level by amount.\n",
+    "body": ["\"nujobs_dellevel ${1:jobname} ${2:amount} ${3|conditions:, |}\"\n$0"]
+  },
+  "Leave Jobs Job Objective Compatibility": {
+    "prefix": "nujobs_leavejob {jobname}",
+    "description": "Triggers when player leaves job.\n\n!!! notice\n    This is not triggered by '/jobs leaveall'\n",
+    "body": ["\"nujobs_leavejob ${1:jobname} events:$2 ${3|conditions:, |} ${4|global, |} ${5|persistent, |}\"\n$0"]
+  },
+  "Paste schematic Compatibility": {
+    "prefix": "paste",
+    "description": "This event will paste a schematic at the given location. The first argument is a location and the second one is the name of schematic file. The file must be located in `WorldEdit/schematics` and have a name like `some_building.schematic`. An optional `noair` can be added to paste ignoring air blocks.\nIf you have only a `.schem` schematic, simply append `.schem` to the schematic name.",
+    "body": ["\"paste ${1:x};${2:y};${3:z};${4:worldName} ${5:schematicName} ${6|noair, |} ${7|conditions:, |}\"\n$0"]
+  },
+  "Has Job Compatibility": {
+    "prefix": "nujobs_hasjob {jobname}",
+    "description": "Returns true if the player has this job",
+    "body": ["\"nujobs_hasjob ${1:jobName}\"\n$0"]
+  },
+  "Shop amount Compatibility": {
+    "prefix": "shopamount",
+    "description": "This condition checks if the player owns specified (or greater) amount of shops. It doesn't matter what type these shops are. The only argument is a number - minimum amount of shops.",
+    "body": ["\"shopamount ${1:amount}\"\n$0"]
+  }
+}

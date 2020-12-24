@@ -1,0 +1,37 @@
+{
+    "fullConversation": {
+        "prefix": "conversation",
+        "description": "Creates a full conversation template!",
+        "body": [
+            "quester: \"${1:NPCName}\"",
+            "first: \"option1, option2\"",
+            "stop: \"${2|true,false|}\"",
+            "final_events: \"event1, event2\"",
+            "NPC_options:",
+            "  option1:",
+            "    text: \"Hey %player%! I have a quest for you.\"",
+            "    events: \"someEvent, anotherEvent\"",
+            "    conditions: \"someCondition, !someInvertedCondition\"",
+            "    pointers: \"reply1, reply2\"",
+            "  option2:",
+            "    text: \"&3I don't want to talk with you...\"",
+            "player_options:",
+            "  reply1:",
+            "    text: \"I want to go on an adventure!\"",
+            "    event: \"event5\"",
+            "  reply2:",
+            "    text: \"Leave me alone...\""
+        ]
+    }, 
+    "ConversationOption": {
+        "prefix": "conversationOption",
+        "description": "A conversation option that can be used in both NPC_options and player_options.",
+        "body": [
+            "${1:name}:",
+            "  text: \"${2:text}\"",
+            "  ${3|conditions: \"\", |}",    
+            "  ${4|events: \"\", |}",    
+            "  ${5|pointers: \"\", |}"    
+        ]
+    }
+}

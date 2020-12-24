@@ -37,6 +37,25 @@
             {
                 "language": "yaml",
                 "path": "./snippets/objectives.json"
+            },
+            {
+                "language": "yaml",
+                "path": "./snippets/compatibility.json"
+            },
+            {
+                "language": "yaml",
+                "path": "./snippets/conversations.json"
+            }
+        ],
+        "keybindings": [
+            {
+                "key": "ctrl+c+1",
+                "command": "editor.action.insertSnippet",
+                "when": "editorTextFocus",
+                "args": {
+                    "langId": "yaml",
+                    "name": "block Objective"
+                }
             }
         ]
     }

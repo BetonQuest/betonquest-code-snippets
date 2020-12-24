@@ -1,122 +1,122 @@
 {
   "Death Objective": {
     "prefix": "die",
-    "description": "\nDeath objective completes when the player dies meeting all conditions. You can optionally cancel death with `cancel` argument. It will heal player and optionally teleport him to respawn location. There can be two arguments: `cancel`, which is optional, and `respawn:`, which is also optional and only used if there is the `cancel` argument set. You can add them right after type of objective.\n",
-    "body": ["die ${1| ,cancel|} ${2| ,respawn:|} events:$3 ${4| ,conditions:|}$0"]
+    "description": "Death objective completes when the player dies meeting all conditions. You can optionally cancel death with `cancel` argument. It will heal player and optionally teleport him to respawn location. There can be two arguments: `cancel`, which is optional, and `respawn:`, which is also optional and only used if there is the `cancel` argument set. You can add them right after type of objective.",
+    "body": ["\"die ${1| ,cancel|} ${2| ,respawn:|}${3| ,x;y;z;world;yaw;pitch|} events:$4 ${5|conditions:, |} ${6:notify} ${7|global, |} ${8|persistent, |}\"\n$0"]
   },
   "Smelting Objective": {
     "prefix": "smelt",
-    "description": "\nTo complete this objective player must smelt specified item. Note that you must define item as output from furnace, not the ingredient. This one does not support data values (it doesn\u2019t have to). First argument is material name. Next is amount (integer).\n\nSmelting has the same properties as crafting objective.\n",
-    "body": ["smelt ${1:material} ${2:amount} events:$3 ${4| ,conditions:|}$0"]
+    "description": "To complete this objective player must smelt specified item. Note that you must define item as output from furnace, not the ingredient. This one does not support data values (it doesn\u2019t have to). First argument is a BlockSelector name. Next is amount (integer).\n\nSmelting has the same properties as crafting objective.",
+    "body": ["\"smelt ${1:blockSelector} ${2:amount} events:$3 ${4|conditions:, |} ${5:notify} ${6|global, |} ${7|persistent, |}\"\n$0"]
   },
   "Logout Objective": {
     "prefix": "logout",
-    "description": "\nTo complete this objective the player simply needs to leave the server. Keep in mind that running `folder` event here will make it run in \"persistent\" mode, since the player is offline on the next tick.\n",
-    "body": ["logout events:$1 ${2| ,conditions:|}$0"]
+    "description": "To complete this objective the player simply needs to leave the server. Keep in mind that running `folder` event here will make it run in \"persistent\" mode, since the player is offline on the next tick.",
+    "body": ["\"logout events:$1 ${2|conditions:, |} ${3:notify} ${4|global, |} ${5|persistent, |}\"\n$0"]
   },
   "Taming Objective": {
     "prefix": "tame",
-    "description": "\nTo complete this objective player must tame some amount of mobs. valid mob types are: WOLF, OCELOT and HORSE First argument is type, next is amount.\n\nTaming has the same properties as mob kill objective.\n",
-    "body": ["tame ${1:type} ${2:amount} events:$3 ${4| ,conditions:|}$0"]
+    "description": "To complete this objective player must tame some amount of mobs. valid mob types are: WOLF, OCELOT and HORSE First argument is type, next is amount.\n\nTaming has the same properties as mob kill objective.",
+    "body": ["\"tame ${1:type} ${2:amount} events:$3 ${4|conditions:, |} ${5:notify} ${6|global, |} ${7|persistent, |}\"\n$0"]
   },
   "Password Objective": {
     "prefix": "password",
-    "description": "\nThis objective requires the player to type the password in the chat. The first argument is the password. All `` characters are replaced with spaces. It's checked with regular expressions (if your password will be `^beton.beton$` the objective will accept all passwords that starts and ends with `beton` word (`^` represents beginning of a string, `.` represents any character, `` allows the previous character (in this case any) repeat any number of times, and `$` means end of the string), but you can also use something like `beton` - it will work). If you want the objective to ignore case of the letters you can add optional `ignoreCase` argument. For this to work your regular expression needs to use lower case letters. To answer, the player needs to type (in his language, configurable in _messages.yml) `password: here goes player's guess`. If he fails, the message will not be displayed in the chat.\n",
-    "body": ["password ${1:password_regex} ${2| ,ignoreCase:|} events:$3 ${4| ,conditions:|}$0"]
+    "description": "This objective requires the player to type the password in the chat. The first argument is the password. All `` characters are replaced with spaces. It's checked with regular expressions (if your password will be `^beton.beton$` the objective will accept all passwords that starts and ends with `beton` word (`^` represents beginning of a string, `.` represents any character, `` allows the previous character (in this case any) repeat any number of times, and `$` means end of the string), but you can also use something like `beton` - it will work). If you want the objective to ignore case of the letters you can add optional `ignoreCase` argument. For this to work your regular expression needs to use lower case letters. To answer, the player needs to type (in his language, configurable in _messages.yml) `password: here goes player's guess`. If he fails, the message will not be displayed in the chat.",
+    "body": ["\"password ${1:password_regex} ${2| ,ignoreCase:|} ${3| ,prefix:|}${4| ,value|} ${5| ,fail:|}${6| ,failEvents|} events:$7 ${8|conditions:, |} ${9:notify} ${10|global, |} ${11|persistent, |}\"\n$0"]
   },
   "Potion brewing Objective": {
-    "prefix": "potion",
-    "description": "\nTo complete this objective the player needs to brew specified amount of specified potions. The first argument is a potion ID from items.yml. Second argument is amount of potions. You can optionally add `notify` argument to make the objective display progress to players, optionally with the notification interval after colon.\n\nThe brewing will be accepted if the player was the last one to click the ingredient slot in the brewing stand and there were no matching potions there already.\n\nPotion objective has `amount` and `left:` properties.\n",
-    "body": ["potion ${1:itemID} ${2:amount} events:$3 ${4| ,conditions:|}$0"]
+    "prefix": "brew",
+    "description": "To complete this objective the player needs to brew specified amount of specified potions. The first argument is a potion ID from items.yml. Second argument is amount of potions. You can optionally add `notify` argument to make the objective display progress to players, optionally with the notification interval after colon.\n\nThe brewing will be accepted if the player was the last one to click the ingredient slot in the brewing stand and there were no matching potions there already.\n\nPotion objective has `amount` and `left:` properties.",
+    "body": ["\"brew ${1:itemID} ${2:amount} events:$3 ${4|conditions:, |} ${5:notify:${6:interval}} ${7|global, |} ${8|persistent, |}\"\n$0"]
   },
   "Crafting Objective": {
     "prefix": "craft",
-    "description": "\nTo complete this objective the player must craft specified item. First argument is ID of the item, as in items.yml. Next is amount (integer).\n\nCrafting objective has two properties, `amount` and `left`. Amount is current amount of crafted items and left is amount needed to complete the objective.\n",
-    "body": ["craft ${1:itemID} ${2:amount} events:$3 ${4| ,conditions:|}$0"]
+    "description": "To complete this objective the player must craft specified item. First argument is ID of the item, as in items.yml. Next is amount (integer).\n\nCrafting objective has two properties, `amount` and `left`. Amount is current amount of crafted items and left is amount needed to complete the objective.",
+    "body": ["\"craft ${1:itemID} ${2:amount} events:$3 ${4|conditions:, |} ${5:notify} ${6|global, |} ${7|persistent, |}\"\n$0"]
   },
   "Kill player Objective": {
     "prefix": "kill",
-    "description": "\nTo complete this objective the player needs to kill another player. The first argument is amount of players to kill. You can also specify additional arguments: `name:` followed by the name will only accept killing players with this name, `required:` followed by a list of conditions separated with commas will only accept killing players meeting these conditions and `notify` will display notifications when a player is killed, optionally with the notification interval after colon.\n",
-    "body": ["kill ${1:amount} ${2| ,required:|} events:$3 ${4| ,conditions:|}$0"]
+    "description": "To complete this objective the player needs to kill another player. The first argument is amount of players to kill. You can also specify additional arguments: `name:` followed by the name will only accept killing players with this name, `required:` followed by a list of conditions separated with commas will only accept killing players meeting these conditions and `notify` will display notifications when a player is killed, optionally with the notification interval after colon.",
+    "body": ["\"kill ${1:amount} ${2| ,required:|} events:$3 ${4|conditions:, |} ${5:notify:${6:interval}} ${7|global, |} ${8|persistent, |}\"\n$0"]
   },
   "Arrow Shooting Objective": {
     "prefix": "arrow",
-    "description": "\nTo complete this objective the player needs to shoot the arrow into the target. There are two arguments, location of the target and precision number (radius around location where the arrow must land, should be small). Note that the position of an arrow after hit is on the wall of a full block, which means that shooting not full blocks (like heads) won't give accurate results. Experiment with this objective a bit to make sure you've set the numbers correctly.\n",
-    "body": ["arrow ${1:x;y;z;world} ${2:radius} events:$3 ${4| ,conditions:|}$0"]
+    "description": "To complete this objective the player needs to shoot the arrow into the target. There are two arguments, location of the target and precision number (radius around location where the arrow must land, should be small). Note that the position of an arrow after hit is on the wall of a full block, which means that shooting not full blocks (like heads) won't give accurate results. Experiment with this objective a bit to make sure you've set the numbers correctly.",
+    "body": ["\"arrow ${1:x;y;z;world} ${2:radius} events:$3 ${4|conditions:, |} ${5:notify} ${6|global, |} ${7|persistent, |}\"\n$0"]
   },
   "Action Objective": {
     "prefix": "action",
-    "description": "\nThis objective completes when player clicks on given block type. This can be further limited by location condition and item in hand condition. First argument is type of the click, it can be right, left or any. Next is a `block selector`. You can also specify `loc:` argument, followed by standard location format and `range:` followed by a number (or variable). It will define where the clicked block needs to be, as opposed to \"where you must be\" in location condition. If you add argument `cancel`, the click will be canceled (chest will not open, button will not be pressed etc.)\n\nAction objective contains one property, `location`. It's a string formatted like `X: 100, Y: 200, Z:300`. It does not show the radius.\n",
-    "body": ["action ${1|left,right,any|} ${2:block} ${3| ,loc:|} ${4| ,range:|} ${5| ,cancel|} events:$6 ${7| ,conditions:|}$0"]
+    "description": "This objective completes when player clicks on given block type. This can be further limited by location condition and item in hand condition. First argument is type of the click, it can be right, left or any. Next is a `block selector`. You can also specify `loc:` argument, followed by standard location format and `range:` followed by a number (or variable). It will define where the clicked block needs to be, as opposed to \"where you must be\" in location condition. If you add argument `cancel`, the click will be canceled (chest will not open, button will not be pressed etc.)\n\nAction objective contains one property, `location`. It's a string formatted like `X: 100, Y: 200, Z:300`. It does not show the radius.",
+    "body": ["\"action ${1|left,right,any|} ${2:blockSelector} ${3| ,loc:|} ${4| ,range:|} ${5| ,cancel|} events:$6 ${7|conditions:, |} ${8:notify} ${9|global, |} ${10|persistent, |}\"\n$0"]
   },
   "Put items in a chest Objective": {
     "prefix": "chestput",
-    "description": "\nThis objective requires the player to put specified items in a specified chest. First argument is a location of the chest, second argument is a list of items (from items.yml file), separated with a comma. You can also add amount of items after a colon. The items will be removed upon completing the objective unless you add `items-stay` optional argument.\n",
-    "body": ["chestput ${1:x;y;z;world} ${2:itemID}:${3:amount} ${3| ,items-stay} events:$4 ${5| ,conditions:|}$0"]
+    "description": "This objective requires the player to put specified items in a specified chest. First argument is a location of the chest, second argument is a list of items (from items.yml file), separated with a comma. You can also add amount of items after a colon. The items will be removed upon completing the objective unless you add `items-stay` optional argument.",
+    "body": ["\"chestput ${1:x;y;z;world} ${2:itemID}:${3:amount} ${3| ,items-stay} events:$4 ${5|conditions:, |} ${6:notify} ${7|global, |} ${8|persistent, |}\"\n$0"]
   },
   "Location Objective": {
     "prefix": "location",
-    "description": "\nThis objective completes when player moves in specified range of specified location and meets all conditions. The first argument after objective's name must be location, the second - radius around the location. It can be a variable.\n\nLocation objective contains one property, `location`. It's a string formatted like `X: 100, Y: 200, Z:300`.\n",
-    "body": ["location ${1:x;y;z;world} ${2:radius} events:$3 ${4| ,conditions:|}$0"]
+    "description": "This objective completes when player moves in specified range of specified location and meets all conditions. The first argument after objective's name must be location, the second - radius around the location. It can be a variable.\n\nLocation objective contains one property, `location`. It's a string formatted like `X: 100, Y: 200, Z:300`.",
+    "body": ["\"location ${1:x;y;z;world} ${2:radius} events:$3 ${4|conditions:, |} ${5:notify} ${6|global, |} ${7|persistent, |}\"\n$0"]
   },
   "Step on pressure plate Objective": {
     "prefix": "step",
-    "description": "\nTo complete this objective the player has to step on pressure plate at given location. The type of plate does not matter. The first and only required argument is a location. If the pressure plate is not present at that location, the objective will not be completable and will log errors in the console.\n\nStep objective contains one property, `location`. It's a string formatted like `X: 100, Y: 200, Z:300`. It shows an exact location of the pressure plate.\n",
-    "body": ["step ${1:x;y;z;world} events:$1 ${2| ,conditions:|}$0"]
+    "description": "To complete this objective the player has to step on pressure plate at given location. The type of plate does not matter. The first and only required argument is a location. If the pressure plate is not present at that location, the objective will not be completable and will log errors in the console.\n\nStep objective contains one property, `location`. It's a string formatted like `X: 100, Y: 200, Z:300`. It shows an exact location of the pressure plate.",
+    "body": ["\"step ${1:x;y;z;world} events:$2 ${3|conditions:, |} ${4:notify} ${5|global, |} ${6|persistent, |}\"\n$0"]
   },
   "Breed animals Objective": {
     "prefix": "breed",
-    "description": "\nThis works only on Spigot 1.10.2 and later!\n\nThis objective is completed by breeding animals of specified type. The first argument is animal type (types) and second is amount (positive integer). You can add `notify` argument to display a message with remaining amount each time the animal is bred, optionally with the notification interval after colon. While you can specify any entity, the objective will be completable only for breedable ones.\n",
-    "body": ["breed ${1:type} ${2:amount} events:$3 ${4| ,conditions:|}$0"]
+    "description": "This works only on Spigot 1.10.2 and later!\n\nThis objective is completed by breeding animals of specified type. The first argument is animal type (types) and second is amount (positive integer). You can add `notify` argument to display a message with remaining amount each time the animal is bred, optionally with the notification interval after colon. While you can specify any entity, the objective will be completable only for breedable ones.",
+    "body": ["\"breed ${1:type} ${2:amount} events:$3 ${4|conditions:, |} ${5:notify} ${6|global, |} ${7|persistent, |}\"\n$0"]
   },
   "Delay Objective": {
     "prefix": "delay",
-    "description": "\nThis objective is just a long, persistent delay for firing events. It will run only after certain amount of time (measured in minutes) and only when player is online and meets all conditions. If a player is offline at that time it will just wait for them to log in. You should use it for example to delete tags so the player can complete quests multiple times. First argument is time, by default in minutes. You can also use `ticks` or `seconds` argument to use different units, but keep in mind that it's not very precise - it will complete roughly after the time ends. To control that precision you can specify an optional `interval:` argument, which specifies how many ticks should pass between checks. One second is 20 ticks. Less makes the objective more precise, at the expense of performance. The rest is just like in other objectives.\n\nDelay has two properties, `left` and `date`. The first one will show how much time needs to pass before the delay is completed (i.e. `23 days, 5 hours and 45 minutes`), the second one will show a date of completing the objective formatted using `dateformat` setting in _config.yml (it will look like the one above every journal entry).\n",
-    "body": ["delay ${1:duration} ${2| ,ticks,seconds|} ${3| ,interval:|} events:$4 ${5| ,conditions:|}$0"]
+    "description": "This objective is just a long, persistent delay for firing events. It will run only after certain amount of time (measured in minutes) and only when player is online and meets all conditions. If a player is offline at that time it will just wait for them to log in. You should use it for example to delete tags so the player can complete quests multiple times. First argument is time, by default in minutes. You can also use `ticks` or `seconds` argument to use different units, but keep in mind that it's not very precise - it will complete roughly after the time ends. To control that precision you can specify an optional `interval:` argument, which specifies how many ticks should pass between checks. One second is 20 ticks. Less makes the objective more precise, at the expense of performance. The rest is just like in other objectives.\n\nDelay has two properties, `left` and `date`. The first one will show how much time needs to pass before the delay is completed (i.e. `23 days, 5 hours and 45 minutes`), the second one will show a date of completing the objective formatted using `dateformat` setting in _config.yml (it will look like the one above every journal entry).",
+    "body": ["\"delay ${1:duration} ${2| ,ticks,seconds|} ${3| ,interval:|} events:$4 ${5|conditions:, |} ${6:notify} ${7|global, |} ${8|persistent, |}\"\n$0"]
   },
   "Variable Objective": {
     "prefix": "variable",
-    "description": "\nThis objective is different. You cannot complete it, it will also ignore defined events and conditions. You can start it and that's it. While this objective is active though, everything the player types in chat (and matches special pattern) will become a variable. The pattern is `key: value`. So if you type that, it will create a variable called `key`, which will resolve to `value` string. These are not global variables, you can access them as objective properties. Let's say you defined this objective as `var` in your objectives.yml file. You can access the variable in any conversation, event or condition with `%objective.var.key%` - and in case of this example, it will resolve to `value`. The player can type something else, and the variable will change its value. Variables are per-player, so my `key` variable will be different from your `key` variable, depending on what we were typing in chat. You can have as much variables here as you want. To remove this objective use `objective delete` event - there is no other way.\n\nYou can also use `variable` event to change variables stored in this objective. There is one optional argument, `no-chat`. If you use it, the objective won't be modified by what players type in chat.\n",
-    "body": ["variable"]
+    "description": "This objective is different. You cannot complete it, it will also ignore defined events and conditions. You can start it and that's it. While this objective is active though, everything the player types in chat (and matches special pattern) will become a variable. The pattern is `key: value`. So if you type that, it will create a variable called `key`, which will resolve to `value` string. These are not global variables, you can access them as objective properties. Let's say you defined this objective as `var` in your objectives.yml file. You can access the variable in any conversation, event or condition with `%objective.var.key%` - and in case of this example, it will resolve to `value`. The player can type something else, and the variable will change its value. Variables are per-player, so my `key` variable will be different from your `key` variable, depending on what we were typing in chat. You can have as much variables here as you want. To remove this objective use `objective delete` event - there is no other way.\n\nYou can also use `variable` event to change variables stored in this objective. There is one optional argument, `no-chat`. If you use it, the objective won't be modified by what players type in chat.",
+    "body": ["\"variable events:$1 ${2|conditions:, |} ${3:notify} ${4|global, |} ${5|persistent, |}\"\n$0"]
   },
   "Enchant item Objective": {
     "prefix": "enchant",
-    "description": "\nThis objectie is completed when the player enchants specified item with specified enchantment. The first argument is an item name, as defined it items.yml. Second one is the enchantment and a level, separated with a colon. If you need to check for multiple enchantments you can add a list of them, separated by colons.\n",
-    "body": ["enchant ${1:itemID} ${2:enchantment}:${3:level} events:$4 ${5| ,conditions:|}$0"]
+    "description": "This objectie is completed when the player enchants specified item with specified enchantment. The first argument is an item name, as defined it items.yml. Second one is the enchantment and a level, separated with a colon. If you need to check for multiple enchantments you can add a list of them, separated by colons.",
+    "body": ["\"enchant ${1:itemID} ${2:enchantment}:${3:level} events:$4 ${5|conditions:, |} ${6:notify} ${7|global, |} ${8|persistent, |}\"\n$0"]
   },
   "Block Objective": {
     "prefix": "block",
-    "description": "\nTo complete this objective player must break or place specified amount of blocks. First argument after name is a `block selector`. Next is amount. It can be more than 0 for placing and less than 0 for destroying. You can also use `notify` keyword to display messages to the player each time he updates amount of blocks, optionally with the notification interval after colon.\n\nThis objective has two properties, `amount` and `left`. Amount is current amount of blocks in the objective, left is amount needed to complete the objective. Note that it may sometimes be negative!\n",
-    "body": ["block ${1:block} ${2:amount} events:$3 ${4| ,conditions:|}$0"]
+    "description": "To complete this objective player must break or place specified amount of blocks. First argument after name is a `block selector`. Next is amount. It can be more than 0 for placing and less than 0 for destroying. You can also use `notify` keyword to display messages to the player each time he updates amount of blocks, optionally with the notification interval after colon.\n\nThis objective has two properties, `amount` and `left`. Amount is current amount of blocks in the objective, left is amount needed to complete the objective. Note that it may sometimes be negative!",
+    "body": ["\"block ${1:blockSelector} ${2:amount} events:$3 ${4|conditions:, |} ${5:notify:${6:interval}} ${7|global, |} ${8|persistent, |}\"\n$0"]
   },
   "Sheep shearing Objective": {
     "prefix": "shear",
-    "description": "\nTo complete this objective the player has to shear specified amount of sheep, optionally with specified color and/or name. The first, required argument is amount (integer). Optionally, you can add `name:` argument with the name and `color:` with color name.\n\nSheep shearing has the same properties as mob kill objective.\n",
-    "body": ["shear ${1:amount} ${2| ,name:|} ${3| ,color:|} events:$4 ${5| ,conditions:|}$0"]
+    "description": "To complete this objective the player has to shear specified amount of sheep, optionally with specified color and/or name. The first, required argument is amount (integer). Optionally, you can add `name:` argument with the name and `color:` with color name.\n\nSheep shearing has the same properties as mob kill objective.",
+    "body": ["\"shear ${1:amount} ${2| ,name:|} ${3| ,color:|} events:$4 ${5|conditions:, |} ${6:notify:${7:interval}} ${8|global, |} ${9|persistent, |}\"\n$0"]
   },
   "Eat/drink Objective": {
     "prefix": "consume",
-    "description": "\nThis objective is completed by eating specified food or drinking specified potion. The only required argument is the ID of an item from items.yml.\n",
-    "body": ["consume ${1:itemID} events:$2 ${3| ,conditions:|}$0"]
+    "description": "This objective is completed by eating specified food or drinking specified potion. The only required argument is the ID of an item from items.yml.",
+    "body": ["\"consume ${1:itemID} events:$2 ${3|conditions:, |} ${4:notify} ${5|global, |} ${6|persistent, |}\"\n$0"]
   },
   "Experience Objective": {
     "prefix": "experience",
-    "description": "\nThis objective can by completed by reaching specified level (default Minecraft experience, whole levels). The conditions are checked when the player levels up, so if they are not met the first time, the player will have to meet them and levelup again. Instruction string consists only from integer - level to reach.\n",
-    "body": ["experience ${1:amount} events:$2 ${3| ,conditions:|}$0"]
+    "description": "This objective can by completed by reaching specified level (default Minecraft experience, whole levels). The conditions are checked when the player levels up, so if they are not met the first time, the player will have to meet them and levelup again. Instruction string consists only from integer - level to reach.",
+    "body": ["\"experience ${1:amount} ${2| ,level|} events:$3 ${4|conditions:, |} ${5:notify} ${6|global, |} ${7|persistent, |}\"\n$0"]
   },
   "Fishing Objective": {
     "prefix": "fish",
-    "description": "\nRequires the player to catch a fish. It doesn't have to be a fish, it can also be a treasure or junk. The first argument is material name of the item to catch, optionally with data value after a colon. Second argument must be amount of fish to catch. You can also add `notify` argument if you want to display progress, optionally with the notification interval after colon.\n\nFishing has the same properties as mob kill objective.\n",
-    "body": ["fish ${1:material} ${2:amount} events:$2 ${3| ,conditions:|}$0"]
+    "description": "Requires the player to catch a fish. It doesn't have to be a fish, it can also be a treasure or junk. The first argument is a BlockSelector name of the item to catch, optionally with data value after a colon. Second argument must be amount of fish to catch. You can also add `notify` argument if you want to display progress, optionally with the notification interval after colon.\n\nFishing has the same properties as mob kill objective.",
+    "body": ["\"fish ${1:blockSelector} ${2:amount} events:$3 ${4|conditions:, |} ${5:notify:${6:interval}} ${7|global, |} ${8|persistent, |}\"\n$0"]
   },
   "Interact with entity Objective": {
     "prefix": "interact",
-    "description": "\nThe player must click on an entity to complete this objective. The first argument is the type of a click. Available values are `right`, `left` and `any`. Second required argument is the mob type. Next is an amount of mobs required to click on. These must be unique, so the player can't simply click twenty times on the same zombie to complete it. There is also an optional `name:` parameter which specifies what name the entity must have and `marked:` if the clicked entity needs to be marked by the `spawn` event (see its description for marking explanation). You can also add `notify` argument to make the objective notify players whenever they click a correct entity, optionally with the notification interval after colon and `cancel` if the click shouldn't do what it usually does (i.e. left click won't hurt the entity). This can be limited with an optional `loc` and `range` attribute to limit within a range of a location.\n",
-    "body": ["interact ${1|right,left,any|} ${2:type} ${3:amount} ${4| ,name:|} ${5| ,marked:|} ${7| ,loc:|} ${8| ,range:|} ${9| ,cancel|} events:$10 ${11| ,conditions:|}$0"]
+    "description": "The player must click on an entity to complete this objective. The first argument is the type of a click. Available values are `right`, `left` and `any`. Second required argument is the mob type. Next is an amount of mobs required to click on. These must be unique, so the player can't simply click twenty times on the same zombie to complete it. There is also an optional `name:` parameter which specifies what name the entity must have and `marked:` if the clicked entity needs to be marked by the `spawn` event (see its description for marking explanation). You can also add `notify` argument to make the objective notify players whenever they click a correct entity, optionally with the notification interval after colon and `cancel` if the click shouldn't do what it usually does (i.e. left click won't hurt the entity). This can be limited with an optional `loc` and `range` attribute to limit within a range of a location.",
+    "body": ["\"interact ${1|right,left,any|} ${2:type} ${3:amount} ${4| ,name:|} ${5| ,marked:|} ${7| ,loc:|} ${8| ,range:|} ${9| ,cancel|} events:$10 ${11|conditions:, |} ${12:notify:${13:interval}} ${14|global, |} ${15|persistent, |}\"\n$0"]
   },
   "Mob Kill Objective": {
     "prefix": "mobkill",
-    "description": "\nThe player must kill specified amount of mobs You must specify mob type first and then amount. You can find possible mob types here: mob types. Additionally you can specify names for mobs with `name:UberZombie`, so only killing properly named mobs counts. All `` are replaced with spaces, so in this example you would have to kill 5 zombies with \"Uber Zombie\" above their heads. You can also specify `notify` keyword to display messages to the player each time he kills a mob, optionally with the notification interval after colon. If you want to accept only mobs marked with `spawn` event, use `marked:` argument followed by the keyword used in that event.\n\nThis objective also has two properties, `amount` and `left`. Amount is current amount of killed mobs, left is amount needed to complete the objective.\n",
-    "body": ["mobkill ${1:type} ${2:amount} ${3| ,name:|} ${4| ,marked:|} events:$5 ${6| ,conditions:|}$0"]
+    "description": "The player must kill specified amount of mobs You must specify mob type first and then amount. You can find possible mob types here: mob types. Additionally you can specify names for mobs with `name:UberZombie`, so only killing properly named mobs counts. All `` are replaced with spaces, so in this example you would have to kill 5 zombies with \"Uber Zombie\" above their heads. You can also specify `notify` keyword to display messages to the player each time he kills a mob, optionally with the notification interval after colon. If you want to accept only mobs marked with `spawn` event, use `marked:` argument followed by the keyword used in that event.\n\nThis objective also has two properties, `amount` and `left`. Amount is current amount of killed mobs, left is amount needed to complete the objective.",
+    "body": ["\"mobkill ${1:type} ${2:amount} ${3| ,name:|} ${4| ,marked:|} events:$5 ${6|conditions:, |} ${7:notify:${8:interval}} ${9|global, |} ${10|persistent, |}\"\n$0"]
   }
 }
