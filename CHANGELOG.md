@@ -9,6 +9,11 @@ This project loosely follows [Semantic Versioning](https://semver.org/spec/v2.0.
 
 <!--TODO Update change log -->
 
+## [2.1.0] - 2020-12-26
+
+### Release Notes:
+Notify has been marked as an optional option for all objectives.
+
 ## [2.0.0] - 2020-12-24
 
 ### Release Notes:

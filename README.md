@@ -38,6 +38,10 @@ Report new Issues [here](https://github.com/joblo2213/betonquest-code-snippets/i
 ## Release Notes
 <!-- TODO Add release notes -->
 
+### 2.1.0
+
+Notify has been marked as an optional option for all objectives.
+
 ### 2.0.0
 
 All snippets have been overhauled to work with BetonQuest 1.12. They also now feature proper completion
