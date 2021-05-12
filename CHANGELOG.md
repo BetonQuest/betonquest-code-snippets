@@ -9,6 +9,11 @@ This project loosely follows [Semantic Versioning](https://semver.org/spec/v2.0.
 
 <!--TODO Update change log -->
 
+## [2.2.0] - 2021-05-13
+ - The keybind for the conversation snippet has been changed from "shift+space" to "Alt+B".
+ - The keybind just works when the file has a .yml suffix.
+
+
 ## [2.1.0] - 2020-12-26
 
 ### Release Notes:
