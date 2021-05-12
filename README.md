@@ -38,6 +38,10 @@ Report new Issues [here](https://github.com/joblo2213/betonquest-code-snippets/i
 ## Release Notes
 <!-- TODO Add release notes -->
 
+### 2.2.0
+- The keybind for the conversation snippet has been changed from "shift+space" to "Alt+B".
+- The keybind just works when the file has a .yml suffix.
+
 ### 2.1.0
 
 Notify has been marked as an optional option for all objectives.
