@@ -16,7 +16,7 @@
 </p>
 
 
-**Code snippets version `2.2.0` for BetonQuest version [`1.12`](https://github.com/BetonQuest/BetonQuest/releases/tag/v1.11)**
+**Code snippets version `2.2.0` for BetonQuest version [`1.12`](https://github.com/BetonQuest/BetonQuest/releases/tag/v1.12.3)**
 
 [BetonQuest](https://github.com/BetonQuest/BetonQuest) is a plugin that allows you to create complex rpg styled quests on your Spigot Minecraft server.  
 
