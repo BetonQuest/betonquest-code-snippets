@@ -2,14 +2,14 @@
     "name": "betonquest-code-snippets",
     "displayName": "BetonQuest Code Snippets",
     "description": "Code snippets for easy quest development with BetonQuest Spigot Plugin",
-    "version": "2.2.0",
+    "version": "2.1.0",
     "icon": "assets/icon.png",
     "galleryBanner": {
         "color": "#3F51B5",
         "theme": "dark"
     },
     "author": "Jonas Blocher, SaltyAimbOtter, Wolf2323",
-    "publisher": "BetonQuest Organisation",
+    "publisher": "BetonQuest",
     "license": "GPLv3",
     "repository": {
         "type": "git",
